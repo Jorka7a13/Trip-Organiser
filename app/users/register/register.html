@@ -1,0 +1,50 @@
+<div class="container-fluid">
+	<div class="row">
+		<a href="">    						<!-- DOES THIS MAKE SENSE FROM USER PERSPECTIVE? -->
+			<div class="col-md-12 text-center header">
+				<h1 class="brand-text">Trip Organiser</h1>
+			</div>
+		</a>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 text-center">
+			<h1 class="welcome-text">Welcome</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 top-buffer-medium">
+			<form name="registerForm" ng-submit="submit()">
+				<div class="form-group has-feedback login-form-group">
+					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+					<input class="form-control input-text" type="email" name="email" placeholder="Email Address" ng-model="user.email" required>
+				</div>
+				<div class="form-group has-feedback login-form-group">
+					<span class="glyphicon glyphicon-user form-control-feedback"></span>
+					<input class="form-control input-text" type="text" name="username" placeholder="Username" ng-model="user.username" required>
+				</div>
+				<div class="form-group has-feedback login-form-group">
+					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+					<input class="form-control input-text" type="password" name="password" placeholder="Create a Password" ng-model="user.password" required>
+				</div>
+				<div class="form-group has-feedback login-form-group">
+					<span class="glyphicon glyphicon-user form-control-feedback"></span>
+					<input class="form-control input-text" type="text" name="firstName" placeholder="First Name" ng-model="user.firstName" required>
+				</div>
+				<div class="form-group has-feedback login-form-group">
+					<span class="glyphicon glyphicon-user form-control-feedback"></span>
+					<input class="form-control input-text" type="text" name="lastName" placeholder="Last Name" ng-model="user.lastName" required>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 top-buffer-extra-small">
+						<button class="medium-button colored-button" type="submit" ng-click="register()">Register</button>
+					</div>
+					<div class="col-sm-6 top-buffer-extra-small">
+						<button class="medium-button transparent-button" type="button" ng-click="cancel()">Cancel</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,12 +1,17 @@
-'use strict';
+(function() {
+	'use strict';
 
-// Declare app level module which depends on views, and components
-angular.module('tripOrganiser', [
-  'ngRoute',
-//  'tripOrganiser.view1'
-]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
+	// Declare app level module which depends on views, and components
+	angular.module('tripOrganiser', [
+	  'ngRoute',
+	  'tripOrganiser.users.login',
+	  'tripOrganiser.users.register',
+	  'tripOrganiser.home'
+	])
 
-//  $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+	.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+	  $locationProvider.hashPrefix('!');
+
+	  $routeProvider.otherwise({redirectTo: '/home'});
+	}]);
+})();
