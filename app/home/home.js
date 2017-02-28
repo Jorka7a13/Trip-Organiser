@@ -6,11 +6,11 @@
 	.config(['$routeProvider', function($routeProvider) {
 		$routeProvider.when('/home', {
 			templateUrl: 'home/home.html',
-			controller: 'homeController'
+			controller: 'HomeCtrl'
 		})
 	}])
 
-	.controller('homeController', [
+	.controller('HomeCtrl', [
 		'$scope', 
 		function($scope) {
 	}]);

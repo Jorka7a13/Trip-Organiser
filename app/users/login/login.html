@@ -1,6 +1,6 @@
 <div class="container-fluid">
 	<div class="row">
-		<a href="">    						<!-- DOES THIS MAKE SENSE FROM USER PERSPECTIVE? -->
+		<a href="">    						<!-- DOES THE HREF MAKE SENSE FROM USER PERSPECTIVE? -->
 			<div class="col-md-12 text-center header">
 				<h1 class="brand-text">Trip Organiser</h1>
 			</div>
@@ -17,12 +17,12 @@
 		<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 top-buffer-medium">
 			<form name="loginForm" ng-submit="submit()">
 				<div class="form-group has-feedback login-form-group">
-					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-					<input class="form-control input-text" type="email" name="email" placeholder="Email Address" ng-model="user.email" required>
+					<span class="glyphicon glyphicon-user form-control-feedback"></span>
+					<input class="form-control input-text" type="text" name="username" placeholder="Username" required="required" ng-model="user.username">
 				</div>
 				<div class="form-group has-feedback login-form-group">
 					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
-					<input class="form-control input-text" type="password" name="password" placeholder="Password" ng-model="user.password" required>
+					<input class="form-control input-text" type="password" name="password" placeholder="Password" required="required" ng-model="user.password">
 				</div>
 				<div class="form-check">
 				    <label class="form-check-label">

@@ -1,7 +1,6 @@
 (function() {
 	'use strict';
 
-	// Declare app level module which depends on views, and components
 	angular.module('tripOrganiser', [
 	  'ngRoute',
 	  'tripOrganiser.users.login',
@@ -13,5 +12,8 @@
 	  $locationProvider.hashPrefix('!');
 
 	  $routeProvider.otherwise({redirectTo: '/home'});
-	}]);
+	}])
+
+	.constant('BASE_URL', 'https://baas.kinvey.com/')
+	.constant('APP_KEY', 'kid_BJY6RO3tl');
 })();
