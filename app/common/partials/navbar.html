@@ -30,13 +30,13 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="">Link</a></li>
             <li class="dropdown">
-              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user glyphicon-margin"></span>User Name</span></a>
-              <ul class="dropdown-menu">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user glyphicon-margin"></span>{{user.username || 'Guest'}}</span></a>
+              <ul ng-if="isLoggedIn" class="dropdown-menu">
                 <li><a href=""><span class="glyphicon glyphicon-user glyphicon-margin"></span>Profile</a></li>
                 <li><a href=""><span class="glyphicon glyphicon-envelope glyphicon-margin"></span>Messages</a></li>
                 <li><a href=""><span class="glyphicon glyphicon-globe glyphicon-margin"></span>Friends</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href=""><span class="glyphicon glyphicon-log-out glyphicon-margin"></span>Logout</a></li>
+                <li><a href="" ng-click="logout()"><span class="glyphicon glyphicon-log-out glyphicon-margin"></span>Logout</a></li>
               </ul>
             </li>
           </ul>

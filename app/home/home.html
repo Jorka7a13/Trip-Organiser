@@ -1,13 +1,13 @@
-<div ng-include src="'components/partials/navbar.html'"></div>
+<div ng-include src="'common/partials/navbar.html'"></div>
 
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 text-center top-buffer-medium">
-			<span class="welcome-text text-center">Welcome,  Jorka7a13</span> <!-- {{username}} -->
+			<span class="welcome-text text-center">Welcome,  {{user.username || 'Guest'}}</span>
 		</div>
 	</div>
 
-	<div class="row">
+	<div ng-if="isLoggedIn" class="row">
 		<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">
 			<button type="button" class="large-button colored-button top-buffer-medium">Create a new trip</button>
 		</div>
