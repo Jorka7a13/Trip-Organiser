@@ -17,12 +17,12 @@
 
 			$routeProvider.when('/register', {
 				templateUrl: 'users/register/register.html',
-				controller: 'UsersRegisterCtrl',
+				controller: 'RegisterCtrl',
 				resolve: routeChecks.notAuthenticated
 			})
 		}])
 
-		.controller('UsersRegisterCtrl', [
+		.controller('RegisterCtrl', [
 			'$scope', 
 			'$location',
 			'notification',

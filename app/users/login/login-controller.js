@@ -17,12 +17,12 @@
 
 			$routeProvider.when('/login', {
 				templateUrl: 'users/login/login.html',
-				controller: 'UsersLoginCtrl',
+				controller: 'LoginCtrl',
 				resolve: routeChecks.notAuthenticated
 			})
 		}])
 
-		.controller('UsersLoginCtrl', [
+		.controller('LoginCtrl', [
 			'$scope',
 			'$location',
 			'userAuthentication',
