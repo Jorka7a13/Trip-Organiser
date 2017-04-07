@@ -152,6 +152,13 @@ button:focus {
   margin-right: 8px;
 }
 
+/*CUSTOM TOASTR*/
+#toast-container .toast:hover {
+  -moz-box-shadow: 0 0 6px #000000;
+  -webkit-box-shadow: 0 0 6px #000000;
+  box-shadow: 0 0 6px #000000;
+}
+
 /*CUSTOM NAVBAR*/
 .navbar {
 	border-radius: 0px;
