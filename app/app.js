@@ -30,23 +30,27 @@
 			}]);
 		}])
 
-		.run(['$rootScope', '$location', 'notification', function($rootScope, $location, notification) {
+		.run(['$rootScope', '$location', 'notification', 'userIdentity', function($rootScope, $location, notification, userIdentity) {
 			$rootScope.$on('$routeChangeError', function(ev, current, previous, rejection) {
-				
-				if (rejection === 'Unauthorized Access') {
-					notification.error('You must log in to view this page.');
-				} else if (rejection === 'Must log out') {
-					notification.error('You must log out to view this page.');
+				if (previous && previous.originalPath) { // Show the notification only when there was an explicit visit to the page and not an authomatic redirect.
+					if (rejection === 'Unauthorized Access') {  
+						notification.error('You must log in to view this page.');
+					} else if (rejection === 'Must log out') {
+						notification.error('You must log out to view this page.');
+					}
 				}
 
 				if (rejection === 'Unauthorized Access' || rejection === 'Must log out') {
-					if (previous) {
+					if (previous && previous.originalPath) {
 						$location.path(previous.originalPath);	
 					} else {
-						$location.path('/login');
+						if (userIdentity.isLoggedIn()) {
+							$location.path('/home');
+						} else {
+							$location.path('/login');
+						}
 					}
 				}
-				
 			});
 		}])
 
