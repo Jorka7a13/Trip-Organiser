@@ -18,8 +18,9 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
   </head>
-  <body ng-cloak>
-
+  <body ng-controller="MainCtrl" ng-cloak>
+    <div ng-if="!isUserAuthenticated" ng-include src="'common/partials/header.html'"></div>
+    <div ng-if="isUserAuthenticated" ng-include src="'common/partials/navbar.html'"></div>
     <div ng-view></div>
     
     <!--[if lt IE 7]>
@@ -38,6 +39,8 @@
     <script src="app.js"></script>
     <script src="common/services/authorization-header.js"></script>
     <script src="common/services/notification.js"></script>
+     <script src="common/services/page-title.js"></script>
+    <script src="common/controllers/main-controller.js"></script>
     <script src="users/services/user-authentication.js"></script>
     <script src="users/services/user-identity.js"></script>
     <script src="users/login/login-controller.js"></script>

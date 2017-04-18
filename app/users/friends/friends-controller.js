@@ -23,7 +23,8 @@
 
 		.controller('FriendsCtrl', [
 			'$scope',
-			function($scope) {
-				console.log('asd');
+			'pageTitle',
+			function($scope, pageTitle) {
+				pageTitle.setTitle('Friends');
 		}]);
 })();

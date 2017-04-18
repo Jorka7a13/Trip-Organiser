@@ -4,6 +4,8 @@
 	angular.module('tripOrganiser', [
 		'ngRoute',
 		'tripOrganiser.notification',
+		'tripOrganiser.pageTitle',
+		'tripOraniser.main',
 		'tripOrganiser.users.userIdentity',
 		'tripOrganiser.users.login',
 		'tripOrganiser.users.register',

@@ -238,6 +238,12 @@ button:focus {
   color: #f8f2fe;
 }
 
+.navbar-text.page-title {
+  color: #6c8a3e;
+  font-size: 1.6em;
+  margin: 10px 8px 8px 8px;
+}
+
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #e2eccb;

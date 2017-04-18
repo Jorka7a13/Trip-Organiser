@@ -27,23 +27,17 @@
 			'$location',
 			'userIdentity',
 			'userAuthentication',
-			function($scope, $location, userIdentity, userAuthentication) {
-				var isLoggedIn = userIdentity.isLoggedIn();
-				$scope.isLoggedIn = isLoggedIn;
+			'pageTitle',
+			function($scope, $location, userIdentity, userAuthentication, pageTitle) {
+				pageTitle.setTitle('Home');
+
+				var isLoggedIn = userIdentity.isLoggedIn(); // Get this from rootScope?? And attach it in rootScope in MainCtrl??
 
 				if (isLoggedIn) {
 					userIdentity.getCurrentUser()
 						.then(function(currentUser) {
 							$scope.user = currentUser;
 						});
-				}
-
-				$scope.logout = function logout() {
-					userAuthentication.logout()
-						.then(function() {
-							userIdentity.deleteCurrentUser();
-							$location.path('/login');
-						})
 				}
 		}]);
 })();
