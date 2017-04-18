@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	angular.module('tripOraniser.main', [])
+	angular.module('tripOrganiser.main', [])
 
 		.controller('MainCtrl', [
 			'$scope',

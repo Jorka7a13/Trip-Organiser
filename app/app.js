@@ -5,10 +5,11 @@
 		'ngRoute',
 		'tripOrganiser.notification',
 		'tripOrganiser.pageTitle',
-		'tripOraniser.main',
+		'tripOrganiser.main',
 		'tripOrganiser.users.userIdentity',
 		'tripOrganiser.users.login',
 		'tripOrganiser.users.register',
+		'tripOrganiser.users.profile',
 		'tripOrganiser.users.friends',
 		'tripOrganiser.home'
 	])
