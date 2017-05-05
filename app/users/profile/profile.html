@@ -1,0 +1,49 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2 top-buffer-large">
+			<div class="col-md-2 col-md-offset-2">
+				<span>Profile Picture</span>
+			</div>
+			<div class="col-md-6">
+				<span class="text-size-large text-color-medium">{{user.username}}</span>
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2 top-buffer-extra-small">
+			<div class="col-md-2 col-md-offset-2">
+				<span class="text-size-medium text-color-light">Name:</span>
+			</div>
+			<div class="col-md-6">
+				<span class="text-size-medium text-color-light">{{user.firstName}} {{user.lastName}}</span>
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2 top-buffer-extra-small">
+			<div class="col-md-2 col-md-offset-2">
+				<span class="text-size-medium text-color-light">Email:</span>
+			</div>
+			<div class="col-md-6">
+				<span class="text-size-medium text-color-light">{{user.email}}</span>
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2 top-buffer-extra-small">
+			<div class="col-md-2 col-md-offset-2">
+				<span class="text-size-medium text-color-light">Age:</span>
+			</div>
+			<div class="col-md-6">
+				<span class="text-size-medium text-color-light">{{user.age}}</span>
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2 top-buffer-extra-small">
+			<div class="col-md-2 col-md-offset-2">
+				<span class="text-size-medium text-color-light">Sex:</span>
+			</div>
+			<div class="col-md-6">
+				<span class="text-size-medium text-color-light">{{user.sex}}</span>
+			</div>
+		</div>
+		<div ng-if="isOwnProfile" class="col-md-8 col-md-offset-2 top-buffer-medium">
+			<div class="col-md-4 col-md-offset-2">
+				<button class="button-size-medium button-transparent" type="button">Edit Profile</button>
+			</div>
+		</div>
+	</div>
+</div>

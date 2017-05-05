@@ -24,19 +24,17 @@
 
 		.controller('HomeCtrl', [
 			'$scope',
-			'$location',
 			'userIdentity',
-			'userAuthentication',
 			'pageTitle',
-			function($scope, $location, userIdentity, userAuthentication, pageTitle) {
+			function($scope, userIdentity, pageTitle) {
 				pageTitle.setTitle('Home');
 
-				var isLoggedIn = userIdentity.isLoggedIn(); // Get this from rootScope?? And attach it in rootScope in MainCtrl??
+				var isLoggedIn = userIdentity.isLoggedIn();
 
 				if (isLoggedIn) {
 					userIdentity.getCurrentUser()
-						.then(function(currentUser) {
-							$scope.user = currentUser; // And this also..??
+						.then(function(currentUserResult) {
+							$scope.user = currentUserResult;
 						});
 				}
 		}]);

@@ -7,6 +7,7 @@
 		'tripOrganiser.pageTitle',
 		'tripOrganiser.main',
 		'tripOrganiser.users.userIdentity',
+		'tripOrganiser.users.users',
 		'tripOrganiser.users.login',
 		'tripOrganiser.users.register',
 		'tripOrganiser.users.profile',

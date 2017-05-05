@@ -22,8 +22,8 @@
 
 					if (isLoggedIn) {
 						userIdentity.getCurrentUser()
-							.then(function(currentUser) {
-								$scope.currentUser = currentUser;
+							.then(function(currentUserResult) {
+								$scope.currentUser = currentUserResult;
 							});
 					}
 				});

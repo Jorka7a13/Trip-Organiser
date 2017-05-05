@@ -14,24 +14,6 @@ body {
   border-color: #6c8a3e;
 }
 
-.brand-text {
-  /*font-size: 3em; -- bigger, maybe better?*/
-  font-size: 2.5em;
-  color: #e2eccb;
-  /*margin-top: 8px; -- bigger, maybe better?*/
-  margin-top: 6px;
-}
-
-.brand-text:hover {
-  color: #f8f2fe;
-}
-
-.welcome-text {
-  color: #85BA40;
-  font-size: 3em;
-  margin-top: 60px;
-}
-
 /*INPUTS*/
 .input-text {
   margin-bottom: 0px;
@@ -67,38 +49,38 @@ body {
 }
 
 /*BUTTONS*/
-.colored-button {
+.button-colored {
   color: #e2eccb;
 	background-color: #85BA40;
   border-style: solid;
   border-color: #85BA40;
 }
 
-.colored-button:hover {
+.button-colored:hover {
 	color: #f8f2fe;
 }
 
-.transparent-button {
+.button-transparent {
   color: #85BA40;
   background-color: transparent;
   border-style: solid;
   border-color: #85BA40;
 }
 
-.transparent-button:hover {
+.button-transparent:hover {
   color: #f8f2fe;
   background-color: #85BA40;
 	transition: all .5s;
 }
 
-.colored-button:focus,.transparent-button:focus {
+.button-colored:focus,.button-transparent:focus {
   color: #f8f2fe;
   background-color: #6c8a3e;
   border-color: #6c8a3e;
   transition: all .3s;
 }
 
-.large-button {
+.button-size-large {
   padding: 1.5% 7% 1.5%;
   font-size: 2.5em;
   letter-spacing:.1em;
@@ -109,7 +91,7 @@ body {
   width: 100%;
 }
 
-.medium-button {
+.button-size-medium {
   width: 100%;
   font-size: 1.8em;
   border-radius: 5px;
@@ -122,13 +104,44 @@ button:focus {
 }
 
 @media (max-width: 481px) {
-   .large-button { 
+   .button-size-large { 
    		font-size: 2.4em; 
    	}
 }
 
+/*TEXT*/
+.text-brand {
+  /*font-size: 3em; -- bigger, maybe better?*/
+  font-size: 2.5em;
+  color: #e2eccb;
+  /*margin-top: 8px; -- bigger, maybe better?*/
+  margin-top: 6px;
+}
+
+.text-welcome {
+  color: #85BA40;
+  font-size: 3em;
+  margin-top: 60px;
+}
+
+.text-size-large {
+  font-size: 1.7em;
+}
+
+.text-size-medium {
+  font-size: 1.2em;
+}
+
+.text-color-light {
+  color: #85ba40;
+}
+
+.text-color-medium {
+  color: #81a548;
+}
+
 /*MISC*/
-.top-buffer-extra-large{ 
+.top-buffer-extra-large { 
   margin-top: 120px;
 }
 
@@ -160,8 +173,8 @@ button:focus {
 }
 
 /*CUSTOM NAVBAR*/
-.navbar {
-	border-radius: 0px;
+.divider.divider-line {
+  background-color: #e2eccb;
 }
 
 .navbar-default {
@@ -242,6 +255,10 @@ button:focus {
   color: #6c8a3e;
   font-size: 1.6em;
   margin: 10px 8px 8px 8px;
+}
+
+.navbar {
+  border-radius: 0px;
 }
 
 @media (max-width: 767px) {

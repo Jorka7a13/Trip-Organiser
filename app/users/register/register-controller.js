@@ -27,12 +27,11 @@
 			'$location',
 			'notification',
 			'userAuthentication',
-			'userIdentity',
-			function($scope, $location, notification, userAuthentication, userIdentity) {
+			function($scope, $location, notification, userAuthentication) {
 				$scope.register = function register() {
 					userAuthentication.register($scope.user)
-						.then(function(registeredUser) {
-							notification.success('You have registered successfully!');
+						.then(function(registeredUserResult) {
+							notification.success('You have registered successfully, ' + registeredUserResult.username + '!');
 							$location.path('/login');
 						});
 				}

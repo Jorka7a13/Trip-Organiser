@@ -26,8 +26,7 @@
 			'$scope',
 			'$location',
 			'userAuthentication',
-			'userIdentity',
-			function($scope, $location, userAuthentication, userIdentity) {
+			function($scope, $location, userAuthentication) {
 				$scope.login = function login() {
 					userAuthentication.login($scope.user)
 						.then(function() {
