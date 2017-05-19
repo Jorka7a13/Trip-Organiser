@@ -104,9 +104,9 @@ button:focus {
 }
 
 @media (max-width: 481px) {
-   .button-size-large { 
-   		font-size: 2.4em; 
-   	}
+  .button-size-large { 
+  	font-size: 2.4em;
+  }
 }
 
 /*TEXT*/
@@ -140,7 +140,15 @@ button:focus {
   color: #81a548;
 }
 
+/*IMAGES*/
+img.profile-picture {
+  max-width: 100%; 
+  display:block; 
+  height: auto;
+}
+
 /*MISC*/
+/*TOP BUFFER*/
 .top-buffer-extra-large { 
   margin-top: 120px;
 }
@@ -159,6 +167,27 @@ button:focus {
 
 .top-buffer-extra-small { 
   margin-top: 3px;
+}
+
+/*LEFT BUFFER*/
+.left-buffer-extra-large { 
+  margin-left: 120px;
+}
+
+.left-buffer-large { 
+  margin-left: 90px;
+}
+
+.left-buffer-medium { 
+  margin-left: 35px;
+}
+
+.left-buffer-small { 
+  margin-left: 15px;
+}
+
+.left-buffer-extra-small { 
+  margin-left: 3px;
 }
 
 .glyphicon-margin {

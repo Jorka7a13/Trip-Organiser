@@ -1,48 +1,65 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2 top-buffer-large">
-			<div class="col-md-2 col-md-offset-2">
-				<span>Profile Picture</span>
+		<div class="col-md-6 col-md-offset-3 top-buffer-large"> <!-- Whole page container -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="col-xs-4  col-sm-2 col-sm-offset-3 col-md-3 col-md-offset-2">
+						<img class="profile-picture" src="assets\images\profile_default.png" alt="Default profile">
+					</div>
+					<div class="col-xs-6 col-sm-4 col-md-5 top-buffer-small">
+						<div class="row">
+							<div class="col-md-12">
+								<span class="text-size-large text-color-medium">{{user.username}}</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<span class="text-size-medium text-color-light">{{user.firstName}} {{user.lastName}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="col-md-6">
-				<span class="text-size-large text-color-medium">{{user.username}}</span>
-			</div>
-		</div>
-		<div class="col-md-8 col-md-offset-2 top-buffer-extra-small">
-			<div class="col-md-2 col-md-offset-2">
-				<span class="text-size-medium text-color-light">Name:</span>
-			</div>
-			<div class="col-md-6">
-				<span class="text-size-medium text-color-light">{{user.firstName}} {{user.lastName}}</span>
-			</div>
-		</div>
-		<div class="col-md-8 col-md-offset-2 top-buffer-extra-small">
-			<div class="col-md-2 col-md-offset-2">
-				<span class="text-size-medium text-color-light">Email:</span>
-			</div>
-			<div class="col-md-6">
-				<span class="text-size-medium text-color-light">{{user.email}}</span>
-			</div>
-		</div>
-		<div class="col-md-8 col-md-offset-2 top-buffer-extra-small">
-			<div class="col-md-2 col-md-offset-2">
-				<span class="text-size-medium text-color-light">Age:</span>
-			</div>
-			<div class="col-md-6">
-				<span class="text-size-medium text-color-light">{{user.age}}</span>
-			</div>
-		</div>
-		<div class="col-md-8 col-md-offset-2 top-buffer-extra-small">
-			<div class="col-md-2 col-md-offset-2">
-				<span class="text-size-medium text-color-light">Sex:</span>
-			</div>
-			<div class="col-md-6">
-				<span class="text-size-medium text-color-light">{{user.sex}}</span>
-			</div>
-		</div>
-		<div ng-if="isOwnProfile" class="col-md-8 col-md-offset-2 top-buffer-medium">
-			<div class="col-md-4 col-md-offset-2">
-				<button class="button-size-medium button-transparent" type="button">Edit Profile</button>
+			<div class="row">
+				<div class="col-md-12 left-buffer-small"> <!-- Profile info container -->
+					<div class="row">
+						<div class="col-md-12 top-buffer-small"> 
+							<div class="col-xs-2 col-sm-1 col-sm-offset-3 col-md-2 col-md-offset-2">
+								<span class="text-size-medium text-color-light">Email:</span>
+							</div>
+							<div class="col-xs-8 col-sm-8 col-md-8">
+								<span class="text-size-medium text-color-light">{{user.email}}</span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div ng-if="user.age" class="col-md-12 top-buffer-extra-small">
+							<div class="col-xs-2 col-sm-1 col-sm-offset-3 col-md-2 col-md-offset-2">
+								<span class="text-size-medium text-color-light">Age:</span>
+							</div>
+							<div class="col-xs-8 col-sm-8 col-md-8">
+								<span class="text-size-medium text-color-light">{{user.age}}</span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div ng-if="user.sex" class="col-md-12 top-buffer-extra-small">
+							<div class="col-xs-2 col-sm-1 col-sm-offset-3 col-md-2 col-md-offset-2">
+								<span class="text-size-medium text-color-light">Sex:</span>
+							</div>
+							<div class="col-xs-8 col-sm-8 col-md-8">
+								<span class="text-size-medium text-color-light">{{user.sex}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div ng-if="isOwnProfile" class="col-md-12 top-buffer-medium">
+						<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2">
+							<button class="button-size-medium button-transparent" type="button">Edit Profile</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
