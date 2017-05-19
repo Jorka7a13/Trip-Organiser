@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	angular.module('tripOrganiser.authorizationHeader', [
+	angular.module('triplanner.authorizationHeader', [
 		'ngStorage', 
 		'base64'
 	])

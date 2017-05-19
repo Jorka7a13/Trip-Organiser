@@ -1,8 +1,8 @@
 (function() {
 	'use strict';
 
-	angular.module('tripOrganiser.users.users', [
-		'tripOrganiser.authorizationHeader'
+	angular.module('triplanner.users.users', [
+		'triplanner.authorizationHeader'
 	])
 
 		.factory('users', [

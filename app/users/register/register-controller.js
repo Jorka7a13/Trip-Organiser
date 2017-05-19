@@ -1,9 +1,9 @@
 (function() {
 	'use strict';
 
-	angular.module('tripOrganiser.users.register', [
+	angular.module('triplanner.users.register', [
 		'ngRoute',
-		'tripOrganiser.users.userAuthentication'
+		'triplanner.users.userAuthentication'
 	])
 
 		.config(['$routeProvider', function($routeProvider) {

@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	angular.module('tripOrganiser.users.friends', [
+	angular.module('triplanner.users.friends', [
 		'ngRoute'
 	])
 

@@ -1,18 +1,18 @@
 (function() {
 	'use strict';
 
-	angular.module('tripOrganiser', [
+	angular.module('triplanner', [
 		'ngRoute',
-		'tripOrganiser.notification',
-		'tripOrganiser.pageTitle',
-		'tripOrganiser.main',
-		'tripOrganiser.users.userIdentity',
-		'tripOrganiser.users.users',
-		'tripOrganiser.users.login',
-		'tripOrganiser.users.register',
-		'tripOrganiser.users.profile',
-		'tripOrganiser.users.friends',
-		'tripOrganiser.home'
+		'triplanner.notification',
+		'triplanner.pageTitle',
+		'triplanner.main',
+		'triplanner.users.userIdentity',
+		'triplanner.users.users',
+		'triplanner.users.login',
+		'triplanner.users.register',
+		'triplanner.users.profile',
+		'triplanner.users.friends',
+		'triplanner.home'
 	])
 
 		.config(['$locationProvider', '$routeProvider', '$httpProvider', function($locationProvider, $routeProvider, $httpProvider) {

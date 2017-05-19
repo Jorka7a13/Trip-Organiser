@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	angular.module('tripOrganiser.pageTitle', [])
+	angular.module('triplanner.pageTitle', [])
 
 		.factory('pageTitle', [function() {
 				var title = '';

@@ -1,9 +1,9 @@
 (function() {
 	'use strict';
 
-	angular.module('tripOrganiser.users.userAuthentication', [
+	angular.module('triplanner.users.userAuthentication', [
 		'ngStorage',
-		'tripOrganiser.authorizationHeader'
+		'triplanner.authorizationHeader'
 	])
 
 		.factory('userAuthentication', [

@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	angular.module('tripOrganiser.notification', [
+	angular.module('triplanner.notification', [
 		'toastr',
 		'ngAnimate'
 	])
