@@ -1,3 +1,3 @@
-# Trip-Organiser
+# Triplanner
 
-A trip organiser app.
+A trip planner app.
