@@ -43,14 +43,12 @@
 
 				$scope.save = function save() {
 					var updatedUser = angular.copy($scope.user);
-					var sexCleared = false;
 
 					if (updatedUser.sex == 'None') { // If the user removes their 'sex' from their profile information.
 						updatedUser.sex = undefined;
-						sexCleared = true;
 					}
 
-					if (updatedUser.age == '') {
+					if (updatedUser.age == '') { // If the user removes their 'age', don't send an empty string to the server.
 						updatedUser.age = undefined;
 					}
 
@@ -58,15 +56,13 @@
 						.then(function(updatedUserResult) {
 							notification.success('You have successfully updated your profile information, ' + updatedUserResult.username + '!');
 							
-							if (sexCleared) {
-								$scope.user.sex = undefined; // Updates the view manually because updatedUser is a deep copy and won't update the view.
-							}
-
+							userIdentity.deleteCurrentUser(); // Clears the cached current user that has old profile info.
 							$location.path('/profile/' + currentUser._id);
 						})
 				}
 
 				$scope.cancel = function cancel() {
+					userIdentity.deleteCurrentUser(); // Clears the cached current user that has new profile info.
 					$location.path('/profile/' + currentUser._id);
 				}
 		}])
