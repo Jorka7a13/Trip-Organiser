@@ -11,6 +11,7 @@
 		'triplanner.users.login',
 		'triplanner.users.register',
 		'triplanner.users.profile',
+		'triplanner.users.editProfile',
 		'triplanner.users.friends',
 		'triplanner.home'
 	])

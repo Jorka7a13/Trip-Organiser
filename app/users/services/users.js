@@ -23,8 +23,20 @@
 					return deferred.promise;
 				}
 
+				function updateUser(userId, userData) {
+					var deferred = $q.defer();
+
+					$http.put(BASE_URL + 'user/' + APP_KEY + '/' + userId, userData, authorizationHeader.setAuthorizationHeader())
+						.then(function(result) {
+							deferred.resolve(result.data);
+						})
+
+					return deferred.promise;
+				}
+
 				return {
-					getUser : getUser
+					getUser: getUser,
+					updateUser: updateUser
 				}
 		}])
 })();

@@ -1,5 +1,5 @@
 (function() {
-	"use strict";
+	'use strict';
 
 	angular.module('triplanner.users.profile', [
 		'ngRoute'
@@ -24,10 +24,11 @@
 		.controller('ProfileCtrl', [
 			'$scope',
 			'$routeParams',
+			'$location',
 			'pageTitle',
 			'users',
 			'userIdentity',
-			function($scope, $routeParams, pageTitle, users, userIdentity) {
+			function($scope, $routeParams, $location, pageTitle, users, userIdentity) {
 				pageTitle.setTitle('Profile');
 
 				var userId = $routeParams.userId;
@@ -46,6 +47,10 @@
 									})
 							}
 						})
+				}
+
+				$scope.editProfile = function editProfile() {
+					$location.path('/edit-profile');
 				}
 		}])
 })();

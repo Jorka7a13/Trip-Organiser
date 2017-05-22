@@ -1,0 +1,60 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 top-buffer-large"> <!-- Whole page container -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="col-xs-4 col-xs-offset-1 col-sm-2 col-sm-offset-3 col-md-3 col-md-offset-1">
+						<img class="profile-picture" src="assets\images\profile_default.png" alt="Default profile">  <!-- could be edited -->
+					</div>
+					<div class="col-xs-6 col-sm-4 col-md-5 top-buffer-small">
+						<div class="row">
+							<div class="col-md-12">
+								<span class="text-size-extra-large text-color-medium">{{user.username}}</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<span class="text-size-medium text-color-light">{{user.email}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-1 top-buffer-small"> <!-- Profile info container -->
+					<form name="editProfileForm" ng-submit="submit()">
+						<div class="form-group has-feedback">
+							<span class="glyphicon glyphicon-user form-control-feedback"></span>
+							<input class="form-control input-text" type="text" name="firstName" placeholder="First Name" ng-model="user.firstName">
+						</div>
+						<div class="form-group has-feedback">
+							<span class="glyphicon glyphicon-user form-control-feedback"></span>
+							<input class="form-control input-text" type="text" name="lastName" placeholder="Last Name" ng-model="user.lastName">
+						</div>
+						<div class="form-group has-feedback">
+							<span class="glyphicon glyphicon-user form-control-feedback"></span>
+							<input class="form-control input-text" type="text" name="age" placeholder="Age" ng-model="user.age">
+						</div>
+						<div class="form-group has-feedback">
+							<select class="form-control customSelect" ng-model="user.sex">
+								<option selected ng-disabled hidden value="">Sex</option>
+							    <option value="None">None</option>
+							    <option value="Male">Male</option>
+							    <option value="Female">Female</option>
+							    <option value="Other">Other</option>
+							</select>
+						</div>
+						<div class="row">
+							<div class="col-sm-6 top-buffer-extra-small">
+								<button class="button-size-medium button-colored" type="submit" ng-click="save()">Save</button>
+							</div>
+							<div class="col-sm-6 top-buffer-extra-small">
+								<button class="button-size-medium button-transparent" type="button" ng-click="cancel()">Cancel</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
