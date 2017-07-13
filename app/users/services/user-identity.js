@@ -3,17 +3,19 @@
 
 	angular.module('triplanner.users.userIdentity', [
 		'ngStorage',
-		'triplanner.authorizationHeader'
+		'triplanner.common.headers',
+		'triplanner.users.userProfilePicture'
 	])
 
 		.factory('userIdentity', [
 			'$http',
 			'$q',
 			'$localStorage',
-			'authorizationHeader',
+			'userProfilePicture',
+			'headers',
 			'BASE_URL',
 			'APP_KEY',
-			function($http, $q, $localStorage, authorizationHeader, BASE_URL, APP_KEY) {
+			function($http, $q, $localStorage, userProfilePicture, headers, BASE_URL, APP_KEY) {
 				var currentUser; // Cache the current user after the first request to get it.
 
 				function getCurrentUser() {
@@ -22,10 +24,19 @@
 					if (currentUser) {
 						return $q.when(currentUser);
 					} else {
-						$http.get(BASE_URL + 'user/' + APP_KEY + '/_me', authorizationHeader.setAuthorizationHeader())
-							.then(function(result) {
-								currentUser = result.data;
-								deferred.resolve(currentUser);
+						$http.get(BASE_URL + 'user/' + APP_KEY + '/_me', headers.setHeaders({'userAuthentication' : true}))
+							.then(function(currentUserResult) {
+								currentUser = currentUserResult.data;
+
+								if (currentUser.hasProfilePicture) {
+									userProfilePicture.getProfilePicture(currentUser._id)
+										.then(function(profilePictureUrlResult) {
+											currentUser.profilePictureUrl = profilePictureUrlResult.data;
+											deferred.resolve(currentUser);
+										})
+								} else {
+									deferred.resolve(currentUser);
+								}
 							});
 
 						return deferred.promise;

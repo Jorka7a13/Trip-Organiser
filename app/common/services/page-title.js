@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	angular.module('triplanner.pageTitle', [])
+	angular.module('triplanner.common.pageTitle', [])
 
 		.factory('pageTitle', [function() {
 				var title = '';

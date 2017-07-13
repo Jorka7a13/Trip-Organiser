@@ -1,58 +1,95 @@
 <div class="container">
-	<div class="row">
-		<div class="col-md-6 col-md-offset-3 top-buffer-large"> <!-- Whole page container -->
-			<div class="row">
-				<div class="col-md-12">
-					<div class="col-xs-4 col-xs-offset-1 col-sm-2 col-sm-offset-3 col-md-3 col-md-offset-1">
-						<img class="profile-picture" src="assets\images\profile_default.png" alt="Default profile">  <!-- could be edited -->
-					</div>
-					<div class="col-xs-6 col-sm-4 col-md-5 top-buffer-small">
+	<div class="row"> <!-- Whole page container -->
+		<div class="col-md-6 col-md-offset-3 top-buffer-large">
+			<div class="col-md-12 col-md-offset-1"> <!-- Offset fix -->
+				<div class="row">
+					<div class="col-md-12">
 						<div class="row">
-							<div class="col-md-12">
-								<span class="text-size-extra-large text-color-medium">{{user.username}}</span>
+							<div class="col-xs-4 col-xs-offset-1 col-sm-2 col-sm-offset-3 col-md-3 col-md-offset-1">
+								<form name="editProfilePictureForm" ng-submit="submit()">
+									<div class="profile-image-upload">
+										<label for="profile-image">
+											<img class="profile-picture edit-profile-picture" data-toggle="tooltip" data-placement="right" title="Edit picture" ng-if="user.profilePictureUrl" ng-src="{{user.profilePictureUrl}}" tooltip alt="Profile picture">
+											<img class="profile-picture edit-profile-picture" data-toggle="tooltip" data-placement="right" title="Edit picture" ng-if="!user.profilePictureUrl" ng-src="assets\images\profile_default.png" tooltip alt="Default picture">
+										</label>
+										<input id="profile-image" type="file" accept="image/*" image-input="user.profilePictureUrl"/>
+									</div>
+								</form>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<span class="text-size-medium text-color-light">{{user.email}}</span>
+							<div class="col-xs-6 col-sm-4 col-md-5"> 
+								<div class="row">
+									<div class="col-md-12">
+										<span class="text-size-extra-large text-color-medium">{{user.username}}</span>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<span class="text-size-medium text-color-light">{{user.email}}</span>
+									</div>
+								</div>
+								<div class="row" ng-if="user.profilePictureUrl">
+									<div class="col-md-12">
+										<button class="button-size-small button-colored top-buffer-extra-small" type="button" data-toggle="modal" data-target="#confirmationModal">Remove profile picture</button>
+										<div id="confirmationModal" class="modal fade">
+										    <div class="modal-dialog remove-profile-picture-modal">
+										        <div class="modal-content">
+										            <div class="modal-header">
+										                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+										                <h4 class="modal-title">Are you sure you want to remove your profile picture?</h4>
+										            </div>
+										            <div class="modal-footer">
+										            	<div class="container-fluid">
+										            		<div class="row">
+										            			<div class="col-md-12">
+										            				<button class="button-modal button-colored" type="button" ng-click="removeProfilePicture()" data-dismiss="modal">Remove</button>
+													                <button class="button-modal button-transparent left-buffer-extra-small" type="button" data-dismiss="modal">Cancel</button>
+												                </div>
+											                </div>
+										                </div>
+										            </div>
+										        </div>
+										    </div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-1 top-buffer-small"> <!-- Profile info container -->
-					<form name="editProfileForm" ng-submit="submit()">
-						<div class="form-group has-feedback">
-							<span class="glyphicon glyphicon-user form-control-feedback"></span>
-							<input class="form-control input-text" type="text" name="firstName" placeholder="First Name" ng-model="user.firstName">
-						</div>
-						<div class="form-group has-feedback">
-							<span class="glyphicon glyphicon-user form-control-feedback"></span>
-							<input class="form-control input-text" type="text" name="lastName" placeholder="Last Name" ng-model="user.lastName">
-						</div>
-						<div class="form-group has-feedback">
-							<span class="glyphicon glyphicon-user form-control-feedback"></span>
-							<input class="form-control input-text" type="text" name="age" placeholder="Age" ng-model="user.age">
-						</div>
-						<div class="form-group has-feedback">
-							<select class="form-control custom-select" ng-model="user.sex">
-								<option selected ng-disabled hidden value="">Sex</option>
-							    <option value="None">None</option>
-							    <option value="Male">Male</option>
-							    <option value="Female">Female</option>
-							    <option value="Other">Other</option>
-							</select>
-						</div>
-						<div class="row">
-							<div class="col-sm-6 top-buffer-extra-small">
-								<button class="button-size-medium button-colored" type="submit" ng-click="save()">Save</button>
+				<div class="row"> <!-- Profile info container -->
+					<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-1 top-buffer-tiny">
+						<form name="editProfileInfoForm" ng-submit="submit()">
+							<div class="form-group has-feedback">
+								<span class="glyphicon glyphicon-user form-control-feedback"></span>
+								<input class="form-control input-text" type="text" name="firstName" placeholder="First Name" ng-model="user.firstName">
 							</div>
-							<div class="col-sm-6 top-buffer-extra-small">
-								<button class="button-size-medium button-transparent" type="button" ng-click="cancel()">Cancel</button>
+							<div class="form-group has-feedback">
+								<span class="glyphicon glyphicon-user form-control-feedback"></span>
+								<input class="form-control input-text" type="text" name="lastName" placeholder="Last Name" ng-model="user.lastName">
 							</div>
-						</div>
-					</form>
+							<div class="form-group has-feedback">
+								<span class="glyphicon glyphicon-user form-control-feedback"></span>
+								<input class="form-control input-text" type="text" name="age" placeholder="Age" ng-model="user.age">
+							</div>
+							<div class="form-group has-feedback">
+								<select class="form-control custom-select" ng-model="user.sex">
+									<option selected ng-disabled hidden value="">Sex</option>
+								    <option value="None">None</option>
+								    <option value="Male">Male</option>
+								    <option value="Female">Female</option>
+								    <option value="Other">Other</option>
+								</select>
+							</div>
+							<div class="row">
+								<div class="col-sm-6 top-buffer-tiny">
+									<button class="button-size-medium-full-width button-colored" type="submit" ng-click="save()">Save</button>
+								</div>
+								<div class="col-sm-6 top-buffer-tiny">
+									<button class="button-size-medium-full-width button-transparent" type="button" ng-click="cancel()">Cancel</button>
+								</div>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>

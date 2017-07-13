@@ -2,7 +2,8 @@
 	'use strict';
 
 	angular.module('triplanner.users.editProfile', [
-		'ngRoute'
+		'ngRoute',
+		'triplanner.users.userProfilePicture'
 	])
 
 		.config(['$routeProvider', function($routeProvider) {
@@ -28,10 +29,12 @@
 			'notification',
 			'userIdentity',
 			'users',
-			function($scope, $location, pageTitle, notification, userIdentity, users) {
+			'userProfilePicture',
+			function($scope, $location, pageTitle, notification, userIdentity, users, userProfilePicture) {
 				pageTitle.setTitle('Edit Profile');
 
 				var currentUser;
+				var removedProfilePicture;
 
 				if (userIdentity.isLoggedIn()) {
 					userIdentity.getCurrentUser()
@@ -44,7 +47,7 @@
 				$scope.save = function save() {
 					var updatedUser = angular.copy($scope.user);
 
-					if (updatedUser.sex == 'None') { // If the user removes their 'sex' from their profile information.
+					if (updatedUser.sex == 'None') { // If the user removes their 'sex', don't send 'None' to the server.
 						updatedUser.sex = undefined;
 					}
 
@@ -58,7 +61,21 @@
 							
 							userIdentity.deleteCurrentUser(); // Clears the cached current user that has old profile info.
 							$location.path('/profile/' + currentUser._id);
+
+							if (removedProfilePicture && !currentUser.profilePictureUrl) {
+								userProfilePicture.removeProfilePicture(currentUser._id)
+									.then(function(removedProfilePictureResult) {
+										console.log(removedProfilePictureResult);
+										console.log('success');
+									})
+							}
 						})
+				}
+
+				$scope.removeProfilePicture = function removeProfilePicture() {
+					currentUser.profilePictureUrl = undefined;
+					currentUser.hasProfilePicture = false;
+					removedProfilePicture = true;
 				}
 
 				$scope.cancel = function cancel() {

@@ -3,9 +3,11 @@
 
 	angular.module('triplanner', [
 		'ngRoute',
-		'triplanner.notification',
-		'triplanner.pageTitle',
-		'triplanner.main',
+		'triplanner.common.notification',
+		'triplanner.common.pageTitle',
+		'triplanner.common.imageInput',  // MOVE or REMOVE this directive from the main module?
+		'triplanner.common.tooltip',  // MOVE or REMOVE this directive from the main module?
+		'triplanner.common.main',
 		'triplanner.users.userIdentity',
 		'triplanner.users.users',
 		'triplanner.users.login',
@@ -23,10 +25,12 @@
 			$httpProvider.interceptors.push(['$q', '$injector', function($q, $injector) {
 				return {
 					'responseError': function(rejection) {
-						if (rejection.data.error === 'InvalidCredentials') {
-							$injector.get('notification').error('Invalid username or password.');
-						} else if(rejection.data.error === 'UserAlreadyExists') {
-							$injector.get('notification').error('Please choose a different username.', 'This username is already taken.');
+						if (rejection.data && rejection.data.error) {
+							if (rejection.data.error === 'InvalidCredentials') {
+								$injector.get('notification').error('Invalid username or password.');
+							} else if(rejection.data.error === 'UserAlreadyExists') {
+								$injector.get('notification').error('Please choose a different username.', 'This username is already taken.');
+							}
 						}
 
 						return $q.reject(rejection);

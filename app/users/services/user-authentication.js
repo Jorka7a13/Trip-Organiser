@@ -3,21 +3,21 @@
 
 	angular.module('triplanner.users.userAuthentication', [
 		'ngStorage',
-		'triplanner.authorizationHeader'
+		'triplanner.common.headers'
 	])
 
 		.factory('userAuthentication', [
 			'$http', 
 			'$q',
 			'$localStorage',
-			'authorizationHeader',
+			'headers',
 			'BASE_URL',
 			'APP_KEY',
-			function($http, $q, $localStorage, authorizationHeader, BASE_URL, APP_KEY) {
+			function($http, $q, $localStorage, headers, BASE_URL, APP_KEY) {
 				function login(user) {
 					var deferred = $q.defer();
 
-					$http.post(BASE_URL + 'user/' + APP_KEY + '/login', user, authorizationHeader.setAuthorizationHeader(true))
+					$http.post(BASE_URL + 'user/' + APP_KEY + '/login', user, headers.setHeaders({'appAuthentication' : true}))
 						.then(function(result) {
 							$localStorage.authtoken = result.data._kmd.authtoken;
 							deferred.resolve(result.data);
@@ -29,7 +29,9 @@
 				function register(user) {
 					var deferred = $q.defer();
 
-					$http.post(BASE_URL + 'user/' + APP_KEY, user, authorizationHeader.setAuthorizationHeader(true))
+					user.hasProfilePicture = false;
+					
+					$http.post(BASE_URL + 'user/' + APP_KEY, user, headers.setHeaders({'appAuthentication' : true}))
 						.then(function(result) {
 							deferred.resolve(result.data);
 						});
@@ -40,10 +42,10 @@
 				function logout() {
 					var deferred = $q.defer();
 
-					$http.post(BASE_URL + 'user/' + APP_KEY + '/_logout', {}, authorizationHeader.setAuthorizationHeader())
+					$http.post(BASE_URL + 'user/' + APP_KEY + '/_logout', {}, headers.setHeaders({'userAuthentication' : true}))
 						.then(function(result) {
 							delete $localStorage.authtoken;
-							deferred.resolve(result);
+							deferred.resolve(result.data);
 						});
 
 					return deferred.promise;

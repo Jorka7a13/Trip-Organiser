@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	angular.module('triplanner.main', [])
+	angular.module('triplanner.common.main', [])
 
 		.controller('MainCtrl', [
 			'$scope',
@@ -16,7 +16,7 @@
 					$scope.pageTitle = pageTitle.getTitle(); // update the page title.
 				});
 
-				$scope.$on('$locationChangeStart', function(event) { // On every URL path change,
+				$scope.$on('$locationChangeStart', function() { // On every URL path change,
 				    isLoggedIn = userIdentity.isLoggedIn(); // check if the user is logged in.
 					$scope.isUserAuthenticated = isLoggedIn;
 
