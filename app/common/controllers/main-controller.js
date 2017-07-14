@@ -8,12 +8,19 @@
 			'$location',
 			'userIdentity', 
 			'userAuthentication',
-			'pageTitle',
-			function($scope, $location, userIdentity, userAuthentication, pageTitle) {
+			'pageOptions',
+			function($scope, $location, userIdentity, userAuthentication, pageOptions) {
+				$scope.pageOptions = {}
 				var isLoggedIn = userIdentity.isLoggedIn();
 
 				$scope.$on('$viewContentLoaded', function() { // On every ng-view change,
-					$scope.pageTitle = pageTitle.getTitle(); // update the page title.
+					$scope.pageOptions.pageTitle = pageOptions.getOptions().title; // update the page title.
+
+				 	if (pageOptions.getOptions().friendsSearchBar) {
+						$scope.pageOptions.friendsSearchBar = true;
+					} else {
+						$scope.pageOptions.friendsSearchBar = false;
+					}
 				});
 
 				$scope.$on('$locationChangeStart', function() { // On every URL path change,

@@ -25,11 +25,11 @@
 			'$scope',
 			'$routeParams',
 			'$location',
-			'pageTitle',
+			'pageOptions',
 			'users',
 			'userIdentity',
-			function($scope, $routeParams, $location, pageTitle, users, userIdentity) {
-				pageTitle.setTitle('Profile');
+			function($scope, $routeParams, $location, pageOptions, users, userIdentity) {
+				pageOptions.setOptions({title: 'Profile'});
 
 				var userId = $routeParams.userId;
 

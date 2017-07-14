@@ -8,7 +8,18 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#!/home">Triplanner</a>
-      <p class="navbar-text page-title">{{pageTitle}}<p>
+      <p class="navbar-text page-title">{{pageOptions.pageTitle}}<p>
+    </div>
+    <!-- Add search bar here -->
+    <div class="col-md-3" ng-if="pageOptions.friendsSearchBar">
+        <form class="navbar-form" role="search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="user-search" id="user-search">
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+              </div>
+          </div>
+        </form>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">

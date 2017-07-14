@@ -25,9 +25,9 @@
 		.controller('HomeCtrl', [
 			'$scope',
 			'userIdentity',
-			'pageTitle',
-			function($scope, userIdentity, pageTitle) {
-				pageTitle.setTitle('Home');
+			'pageOptions',
+			function($scope, userIdentity, pageOptions) {
+				pageOptions.setOptions({title: 'Home'});
 
 				var isLoggedIn = userIdentity.isLoggedIn();
 

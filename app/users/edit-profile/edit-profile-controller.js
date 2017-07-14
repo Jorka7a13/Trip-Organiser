@@ -25,13 +25,13 @@
 		.controller('EditProfileCtrl', [
 			'$scope',
 			'$location',
-			'pageTitle',
+			'pageOptions',
 			'notification',
 			'userIdentity',
 			'users',
 			'userProfilePicture',
-			function($scope, $location, pageTitle, notification, userIdentity, users, userProfilePicture) {
-				pageTitle.setTitle('Edit Profile');
+			function($scope, $location, pageOptions, notification, userIdentity, users, userProfilePicture) {
+				pageOptions.setOptions({title: 'Edit Profile'});
 
 				var currentUser;
 				var removedProfilePicture;

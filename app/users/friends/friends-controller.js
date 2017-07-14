@@ -23,8 +23,8 @@
 
 		.controller('FriendsCtrl', [
 			'$scope',
-			'pageTitle',
-			function($scope, pageTitle) {
-				pageTitle.setTitle('Friends');
+			'pageOptions',
+			function($scope, pageOptions) {
+				pageOptions.setOptions({title: 'Friends', friendsSearchBar: true});
 		}]);
 })();

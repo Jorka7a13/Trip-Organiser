@@ -4,7 +4,7 @@
 	angular.module('triplanner', [
 		'ngRoute',
 		'triplanner.common.notification',
-		'triplanner.common.pageTitle',
+		'triplanner.common.pageOptions',
 		'triplanner.common.imageInput',  // MOVE or REMOVE this directive from the main module?
 		'triplanner.common.tooltip',  // MOVE or REMOVE this directive from the main module?
 		'triplanner.common.main',
