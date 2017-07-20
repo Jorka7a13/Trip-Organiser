@@ -8,10 +8,10 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#!/home">Triplanner</a>
-      <p class="navbar-text page-title">{{pageOptions.pageTitle}}<p>
+      <p class="navbar-text page-title">{{pageOptions.title}}<p>
     </div>
     <!-- Search bar -->
-    <div class="col-md-3" ng-if="pageOptions.friendsSearchBar">
+    <div class="col-md-3" ng-if="pageOptions.usersSearchBar">
         <form class="navbar-form" role="search">
           <div class="input-group">
             <input type="text" class="form-control navbarSearchInput" placeholder="Search for people by email or username" ng-model="search.userSearchQuery">

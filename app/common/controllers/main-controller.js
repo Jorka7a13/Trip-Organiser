@@ -6,27 +6,21 @@
 		.controller('MainCtrl', [
 			'$scope',
 			'$location',
+			'pageOptions',
+			'searchQuery',
 			'userIdentity', 
 			'userAuthentication',
-			'users',
-			'pageOptions',
-			function($scope, $location, userIdentity, userAuthentication, users, pageOptions) {
+			function($scope, $location, pageOptions, searchQuery, userIdentity, userAuthentication) {
 				$scope.pageOptions = {}
 				$scope.search = {}
 				var isLoggedIn = userIdentity.isLoggedIn();
 
-				$scope.$on('$viewContentLoaded', function() { // On every ng-view change,
-					$scope.pageOptions.pageTitle = pageOptions.getOptions().title; // update the page title.
-
-				 	if (pageOptions.getOptions().friendsSearchBar) {
-						$scope.pageOptions.friendsSearchBar = true;
-					} else {
-						$scope.pageOptions.friendsSearchBar = false;
-					}
+				$scope.$on('$viewContentLoaded', function() { // On every ng-view change.
+					$scope.pageOptions = pageOptions.getOptions(); // Update the page options.
 				});
 
-				$scope.$on('$locationChangeStart', function() { // On every URL path change,
-				    isLoggedIn = userIdentity.isLoggedIn(); // check if the user is logged in.
+				$scope.$on('$locationChangeStart', function() { // On every URL path change.
+				    isLoggedIn = userIdentity.isLoggedIn(); // Check if the user is logged in.
 					$scope.isUserAuthenticated = isLoggedIn;
 
 					if (isLoggedIn) {
@@ -39,16 +33,8 @@
 
 				$scope.peopleSearch = function peopleSearch() {
 					if ($scope.search.userSearchQuery) {
-						users.findUser($scope.search.userSearchQuery)
-							.then(function(findUsersResult) {
-								if (findUsersResult.length > 0) {
-									console.log(findUsersResult);
-								} else {
-									console.log('No results.');
-								}
-								
-								$scope.search.userSearchQuery = undefined;
-							})
+						searchQuery.setUserSearchQuery($scope.search.userSearchQuery);
+						$scope.search.userSearchQuery = undefined;
 					}
 				}
 

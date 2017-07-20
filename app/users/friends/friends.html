@@ -1,7 +1,11 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-12 text-center top-buffer-medium">
+		<div class="col-md-12 text-center top-buffer-medium" ng-if="!searchResults">
 			<span class="text-color-medium text-size-extra-large">Your friends</span>
+		</div>
+		<div class="col-md-12 text-center top-buffer-medium" ng-if="searchResults">
+			<span class="text-color-medium text-size-extra-large">Search results:</span>
+			<span class="text-color-medium text-size-extra-large">{{searchResults}}</span>
 		</div>
 	</div>
 </div>
