@@ -33,6 +33,26 @@
 					return deferred.promise;
 				}
 
+				function findUser(query) {
+					var deferred = $q.defer();
+					var requestPayload = {};
+
+					var emailValidation = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+					
+					if (emailValidation.test(query)) {
+						requestPayload['email'] = query;
+					} else {
+						requestPayload['username'] = query;
+					}
+
+					$http.post(BASE_URL + 'user/' + APP_KEY + '/_lookup', requestPayload, headers.setHeaders({'userAuthentication': true}))
+						.then(function(userResult) {
+							deferred.resolve(userResult.data);
+						});
+
+					return deferred.promise;
+				}
+
 				function updateUser(userId, userData) {
 					var deferred = $q.defer();
 					
@@ -61,6 +81,7 @@
 
 				return {
 					getUser: getUser,
+					findUser: findUser,
 					updateUser: updateUser
 				}
 		}])

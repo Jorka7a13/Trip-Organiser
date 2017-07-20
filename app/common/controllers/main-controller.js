@@ -8,9 +8,11 @@
 			'$location',
 			'userIdentity', 
 			'userAuthentication',
+			'users',
 			'pageOptions',
-			function($scope, $location, userIdentity, userAuthentication, pageOptions) {
+			function($scope, $location, userIdentity, userAuthentication, users, pageOptions) {
 				$scope.pageOptions = {}
+				$scope.search = {}
 				var isLoggedIn = userIdentity.isLoggedIn();
 
 				$scope.$on('$viewContentLoaded', function() { // On every ng-view change,
@@ -34,6 +36,21 @@
 							});
 					}
 				});
+
+				$scope.peopleSearch = function peopleSearch() {
+					if ($scope.search.userSearchQuery) {
+						users.findUser($scope.search.userSearchQuery)
+							.then(function(findUsersResult) {
+								if (findUsersResult.length > 0) {
+									console.log(findUsersResult);
+								} else {
+									console.log('No results.');
+								}
+								
+								$scope.search.userSearchQuery = undefined;
+							})
+					}
+				}
 
 				$scope.logout = function logout() {
 					userAuthentication.logout()
