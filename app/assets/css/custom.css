@@ -267,6 +267,10 @@ img.navbar-profile-picture {
 }
 
 /*MISC*/
+.clickable-element:hover {
+  cursor: pointer;
+}
+
 /*TOOLTIPS*/
 .tooltip-inner {
   max-width: none;

@@ -23,26 +23,40 @@
 
 		.controller('FriendsCtrl', [
 			'$scope',
+			'$location',
 			'pageOptions',
 			'searchQuery',
 			'users',
-			function($scope, pageOptions, searchQuery, users) {
+			function($scope, $location, pageOptions, searchQuery, users) {
 				pageOptions.setOptions({title: 'Friends', usersSearchBar: true});
 
 				$scope.$watch(function() {
 						return searchQuery.getUserSearchQuery() // Watch for changes on the users searchQuery.
 					}, function(newValue, oldValue) {
 						if (oldValue != newValue) { // If the users searchQuery has changed.
+							$scope.searchResults = [];
+							$scope.foundResults = true;
+
 							users.findUser(newValue)
 								.then(function(findUsersResult) {
 									if (findUsersResult.length > 0) {
-										$scope.searchResults = findUsersResult;
+										$scope.foundResults = true;
+
+										for (var userIndex = 0; userIndex < findUsersResult.length; userIndex++) {
+											users.getUser(findUsersResult[userIndex]._id)
+												.then(function(userResult) {
+													$scope.searchResults.push(userResult);
+												})
+										}
 									} else {
-										$scope.searchResults = 'No results.';
-										console.log('No results.');
+										$scope.foundResults = false;
 									}
 								})
 						}
 				});
+
+				$scope.goToUserProfile = function goToUserProfile(userId) {
+					$location.path('/profile/' + userId);
+				}
 		}]);
 })();
