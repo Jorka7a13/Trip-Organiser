@@ -9,8 +9,8 @@
 								<form name="editProfilePictureForm" ng-submit="submit()">
 									<div class="profile-image-upload">
 										<label for="profile-image">
-											<img class="profile-picture edit-profile-picture" data-toggle="tooltip" data-placement="right" title="Edit picture" ng-if="user.profilePictureUrl" ng-src="{{user.profilePictureUrl}}" tooltip alt="Profile picture">
 											<img class="profile-picture edit-profile-picture" data-toggle="tooltip" data-placement="right" title="Edit picture" ng-if="!user.profilePictureUrl" ng-src="assets\images\profile_default.png" tooltip alt="Default picture">
+											<img class="profile-picture edit-profile-picture" data-toggle="tooltip" data-placement="right" title="Edit picture" ng-if="user.profilePictureUrl" ng-src="{{user.profilePictureUrl}}" tooltip alt="Profile picture">
 										</label>
 										<input id="profile-image" type="file" accept="image/*" image-input="user.profilePictureUrl"/>
 									</div>

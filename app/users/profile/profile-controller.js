@@ -52,5 +52,13 @@
 				$scope.editProfile = function editProfile() {
 					$location.path('/edit-profile');
 				}
+
+				$scope.addFriend = function addFriend() {
+					console.log('Friend added: ' + userId);
+				}
+
+				$scope.cancel = function cancel() {
+					$location.path('/friends');
+				}
 		}])
 })();
