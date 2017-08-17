@@ -1,3 +1,5 @@
+// A service responsible for getting information about the currently logged in user.
+
 (function() {
 	'use strict';
 

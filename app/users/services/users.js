@@ -1,3 +1,5 @@
+// A service responsible for getting information about users other than the currently logged in one.
+
 (function() {
 	'use strict';
 

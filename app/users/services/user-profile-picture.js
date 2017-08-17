@@ -1,3 +1,5 @@
+// A service responsible for managing the profile picture data of a user.
+
 (function() {
 	'use strict';
 

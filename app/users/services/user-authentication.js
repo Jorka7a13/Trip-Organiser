@@ -1,3 +1,5 @@
+// A service responsible for the authentication of a user in the app.
+
 (function() {
 	'use strict';
 

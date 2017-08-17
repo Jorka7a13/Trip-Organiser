@@ -1,3 +1,5 @@
+// A service responsible for generating toastr notifications. 
+
 (function() {
 	'use strict';
 

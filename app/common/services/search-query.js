@@ -1,3 +1,5 @@
+// A service responsible for transmitting data about search queries. 
+
 (function() {
 	'use strict';
 

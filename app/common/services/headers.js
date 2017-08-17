@@ -1,3 +1,5 @@
+// A service responsible for setting headers for http requests. 
+
 (function() {
 	'use strict';
 

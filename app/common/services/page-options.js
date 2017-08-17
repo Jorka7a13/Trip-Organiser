@@ -1,3 +1,5 @@
+// A service responsible for transmitting config data about the current page. 
+
 (function() {
 	'use strict';
 
