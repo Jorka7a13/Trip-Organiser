@@ -1,4 +1,4 @@
-// A service responsible for getting information about the currently logged in user.
+// A service responsible for managing data about the currently logged in user.
 
 (function() {
 	'use strict';
@@ -45,6 +45,32 @@
 					}
 				}
 
+				function updateCurrentUser(userData) {
+					var deferred = $q.defer();
+					
+					var profilePictureUrl;
+
+					if (userData.profilePictureUrl) {
+						profilePictureUrl = userData.profilePictureUrl;
+						userData.profilePictureUrl = undefined; // Don't upload the profile picture URL with the "user" object.
+						userData.hasProfilePicture = true;
+					}
+
+					$http.put(BASE_URL + 'user/' + APP_KEY + '/' + currentUser._id, userData, headers.setHeaders({'userAuthentication' : true}))
+						.then(function(updatedUserResult) {
+							if (profilePictureUrl) {
+								userProfilePicture.updateProfilePicture(userData._id, profilePictureUrl)
+									.then(function(updatedProfilePictureResult) {
+										deferred.resolve(updatedUserResult.data);
+									})
+							} else {
+								deferred.resolve(updatedUserResult.data);
+							}
+						})
+
+					return deferred.promise;
+				}
+
 				function deleteCurrentUser() { // Clear the cached current user.
 					currentUser = undefined;
 				}
@@ -55,6 +81,7 @@
 
 				return {
 					getCurrentUser: getCurrentUser,
+					updateCurrentUser: updateCurrentUser,
 					deleteCurrentUser: deleteCurrentUser,
 					isLoggedIn: isLoggedIn
 				}

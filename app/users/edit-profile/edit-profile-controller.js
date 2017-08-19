@@ -28,9 +28,8 @@
 			'pageOptions',
 			'notification',
 			'userIdentity',
-			'users',
 			'userProfilePicture',
-			function($scope, $location, pageOptions, notification, userIdentity, users, userProfilePicture) {
+			function($scope, $location, pageOptions, notification, userIdentity, userProfilePicture) {
 				pageOptions.setOptions({title: 'Edit Profile'});
 
 				var currentUser;
@@ -55,7 +54,7 @@
 						updatedUser.age = undefined;
 					}
 
-					users.updateUser(currentUser._id, updatedUser)
+					userIdentity.updateCurrentUser(updatedUser)
 						.then(function(updatedUserResult) {
 							notification.success('You have successfully updated your profile information, ' + updatedUserResult.username + '!');
 							
