@@ -26,13 +26,13 @@
 			'$routeParams',
 			'$location',
 			'pageOptions',
+			'notification',
 			'users',
 			'userIdentity',
-			function($scope, $routeParams, $location, pageOptions, users, userIdentity) {
+			function($scope, $routeParams, $location, pageOptions, notification, users, userIdentity) {
 				pageOptions.setOptions({title: 'Profile'});
 
 				var userId = $routeParams.userId;
-
 				if (userIdentity.isLoggedIn()) {
 					userIdentity.getCurrentUser()
 						.then(function(currentUserResult) {
@@ -54,7 +54,11 @@
 				}
 
 				$scope.addFriend = function addFriend() {
-					console.log('Friend added: ' + userId);
+					userIdentity.addFriend($scope.user._id)
+						.then(function(friendAddedResult) {
+							notification.success($scope.user.username + ' is now your friend!');
+							$location.path('/friends');
+						})
 				}
 
 				$scope.cancel = function cancel() {

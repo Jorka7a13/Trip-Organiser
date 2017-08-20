@@ -32,6 +32,7 @@
 					var deferred = $q.defer();
 
 					user.hasProfilePicture = false;
+					user.friends = [];
 					
 					$http.post(BASE_URL + 'user/' + APP_KEY, user, headers.setHeaders({'appAuthentication' : true}))
 						.then(function(result) {

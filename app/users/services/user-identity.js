@@ -71,6 +71,23 @@
 					return deferred.promise;
 				}
 
+				function addFriend(userId) {
+					var deferred = $q.defer();
+
+					if (currentUser.friends.indexOf(userId) !== -1) { // The current user already has this user in their friends list.
+						console.log('That person is already your friend.'); // TODOTODOTODOTODO
+					} else {
+						currentUser.friends.push(userId);
+
+						this.updateCurrentUser(currentUser)
+							.then(function(updatedUserResult) {
+								deferred.resolve(updatedUserResult);
+							})
+					}
+
+					return deferred.promise;
+				}
+
 				function deleteCurrentUser() { // Clear the cached current user.
 					currentUser = undefined;
 				}
@@ -82,6 +99,7 @@
 				return {
 					getCurrentUser: getCurrentUser,
 					updateCurrentUser: updateCurrentUser,
+					addFriend: addFriend,
 					deleteCurrentUser: deleteCurrentUser,
 					isLoggedIn: isLoggedIn
 				}
