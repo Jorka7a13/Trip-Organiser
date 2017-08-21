@@ -27,8 +27,27 @@
 			'pageOptions',
 			'searchQuery',
 			'users',
-			function($scope, $location, pageOptions, searchQuery, users) {
+			'userIdentity',
+			function($scope, $location, pageOptions, searchQuery, users, userIdentity) {
 				pageOptions.setOptions({title: 'Friends', usersSearchBar: true});
+
+				$scope.friends = [];
+
+				if (userIdentity.isLoggedIn()) {
+					userIdentity.getCurrentUser()
+						.then(function(currentUserResult) {
+							if (currentUserResult.friends.length > 0) {
+								$scope.hasFriends = true;
+
+								for (var friendIndex = 0; friendIndex < currentUserResult.friends.length; friendIndex++) {
+									users.getUser(currentUserResult.friends[friendIndex])
+										.then(function(userResult) {
+											$scope.friends.push(userResult);
+										})
+								}
+							}
+						})
+				}
 
 				$scope.$watch(function() {
 						return searchQuery.getUserSearchQuery() // Watch for changes on the users searchQuery.
