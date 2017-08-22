@@ -11,7 +11,7 @@
       <p class="navbar-text page-title">{{pageOptions.title}}<p>
     </div>
     <!-- Search bar -->
-    <div class="col-md-3" ng-if="pageOptions.usersSearchBar">
+    <div ng-if="pageOptions.usersSearchBar" class="col-md-3">
         <form class="navbar-form" role="search">
           <div class="input-group">
             <input type="text" class="form-control navbarSearchInput" placeholder="Search for people by email or username" ng-model="search.userSearchQuery">
@@ -24,7 +24,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="" class="dropdown-toggle" ng-class="{'navbar-profile-picture-padding': currentUser.hasProfilePicture}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user glyphicon-margin" ng-if="!currentUser.hasProfilePicture"></span><span ng-if="currentUser.hasProfilePicture"><img class="navbar-profile-picture" ng-src="{{currentUser.profilePictureUrl}}"></span>{{currentUser.username}}</a>
+          <a href="" class="dropdown-toggle" ng-class="{'navbar-profile-picture-padding': currentUser.hasProfilePicture}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span ng-if="!currentUser.hasProfilePicture" class="glyphicon glyphicon-user glyphicon-margin"></span><span ng-if="currentUser.hasProfilePicture"><img class="navbar-profile-picture" ng-src="{{currentUser.profilePictureUrl}}"></span>{{currentUser.username}}</a>
           <ul class="dropdown-menu">
             <li><a ng-href="#!/profile/{{currentUser._id}}"><span class="glyphicon glyphicon-user glyphicon-margin"></span>Profile</a></li>
             <li><a href="#!/messages"><span class="glyphicon glyphicon-envelope glyphicon-margin"></span>Messages</a></li>

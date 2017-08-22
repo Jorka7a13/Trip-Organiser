@@ -1,12 +1,15 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-12 text-center top-buffer-medium" ng-if="!searchResults && hasFriends">
+		<div ng-if="!searchResults && !hasFriends" class="col-md-12 text-center top-buffer-medium">
+			<span class="text-color-medium text-size-extra-large">You don't have any friends yet.</span>
+		</div>
+		<div ng-if="!searchResults && hasFriends" class="col-md-12 text-center top-buffer-medium">
 			<span class="text-color-medium text-size-extra-large">Your friends</span>
 			<div ng-repeat="friend in friends | orderBy : 'username'">
 				<div class="col-md-6 col-md-offset-3 top-buffer-medium  clickable-element" ng-click="goToUserProfile(friend._id)">
 					<div class="col-xs-4 col-sm-2 col-sm-offset-3 col-md-3 col-md-offset-2"">
-						<img class="profile-picture" ng-if="!friend.profilePictureUrl" ng-src="assets\images\profile_default.png" alt="Default picture">
-						<img class="profile-picture" ng-if="friend.profilePictureUrl" ng-src="{{friend.profilePictureUrl}}" alt="Profile picture">
+						<img ng-if="!friend.profilePictureUrl" class="profile-picture" ng-src="assets\images\profile_default.png" alt="Default picture">
+						<img ng-if="friend.profilePictureUrl" class="profile-picture" ng-src="{{friend.profilePictureUrl}}" alt="Profile picture">
 					</div>
 					<div class="col-xs-6 col-sm-4 col-md-5 top-buffer-small">
 						<div class="row">
@@ -23,19 +26,16 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-12 text-center top-buffer-medium" ng-if="!searchResults && !hasFriends">
-			<span class="text-color-medium text-size-extra-large">You don't have any friends yet.</span>
-		</div>
-		<div class="col-md-12 text-center top-buffer-medium" ng-if="searchResults">
+		<div ng-if="searchResults" class="col-md-12 text-center top-buffer-medium">
 			<span class="text-color-medium text-size-extra-large">Search results:</span>
-			<div class="top-buffer-small" ng-if="!foundResults">
+			<div ng-if="!foundResults" class="top-buffer-small">
 				<span class="text-size-medium text-color-light">No Results for this query.</span>
 			</div>
-			<div class="row" ng-repeat="searchResult in searchResults" ng-if="foundResults"> <!-- Repeat this for each search result. -->
+			<div ng-if="foundResults" class="row" ng-repeat="searchResult in searchResults"> <!-- Repeat this for each search result. -->
 				<div class="col-md-6 col-md-offset-3 top-buffer-medium  clickable-element" ng-click="goToUserProfile(searchResult._id)">
 					<div class="col-xs-4 col-sm-2 col-sm-offset-3 col-md-3 col-md-offset-2"">
-						<img class="profile-picture" ng-if="!searchResult.profilePictureUrl" ng-src="assets\images\profile_default.png" alt="Default picture">
-						<img class="profile-picture" ng-if="searchResult.profilePictureUrl" ng-src="{{searchResult.profilePictureUrl}}" alt="Profile picture">
+						<img ng-if="!searchResult.profilePictureUrl" class="profile-picture" ng-src="assets\images\profile_default.png" alt="Default picture">
+						<img ng-if="searchResult.profilePictureUrl" class="profile-picture" ng-src="{{searchResult.profilePictureUrl}}" alt="Profile picture">
 					</div>
 					<div class="col-xs-6 col-sm-4 col-md-5 top-buffer-small">
 						<div class="row">

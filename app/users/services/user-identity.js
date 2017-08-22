@@ -88,6 +88,24 @@
 					return deferred.promise;
 				}
 
+				function removeFriend(userId) {
+					var deferred = $q.defer();
+
+					var userIndex = currentUser.friends.indexOf(userId);
+					if (userIndex > -1) {
+						currentUser.friends.splice(userIndex, 1);
+					} else {
+						// Error: user is not in friend list.  //TODOTODOTODOTODO deferred.reject?
+					}
+
+					this.updateCurrentUser(currentUser)
+						.then(function(updatedUserResult) {
+							deferred.resolve(updatedUserResult);
+						})
+
+					return deferred.promise;
+				}
+
 				function deleteCurrentUser() { // Clear the cached current user.
 					currentUser = undefined;
 				}
@@ -100,6 +118,7 @@
 					getCurrentUser: getCurrentUser,
 					updateCurrentUser: updateCurrentUser,
 					addFriend: addFriend,
+					removeFriend: removeFriend,
 					deleteCurrentUser: deleteCurrentUser,
 					isLoggedIn: isLoggedIn
 				}

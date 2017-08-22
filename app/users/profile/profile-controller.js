@@ -45,6 +45,10 @@
 									.then(function(userResult) {
 										$scope.user = userResult;
 									})
+
+								if(currentUserResult.friends.indexOf(userId) !== -1) { // If the user is a friend of the currently logged in user.
+									$scope.isFriend = true;
+								}
 							}
 						})
 				}
@@ -57,6 +61,14 @@
 					userIdentity.addFriend($scope.user._id)
 						.then(function(friendAddedResult) {
 							notification.success($scope.user.username + ' is now your friend!');
+							$location.path('/friends');
+						})
+				}
+
+				$scope.removeFriend = function removeFriend() {
+					userIdentity.removeFriend($scope.user._id)
+						.then(function(friendRemovedResult) {
+							notification.success($scope.user.username + ' is no longer your friend!');
 							$location.path('/friends');
 						})
 				}
