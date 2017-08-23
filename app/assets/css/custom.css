@@ -213,6 +213,10 @@ button:focus {
   color: #81a548;
 }
 
+.text-color-dark {
+  color: #6c8a3e;
+}
+
 /*IMAGES*/
 img.profile-picture {
   max-width: 100%;
