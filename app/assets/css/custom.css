@@ -19,11 +19,12 @@ body {
 .input-text {
   margin-bottom: 0px;
   border-color: #85BA40;
+  /*background-color: black;*/
 }
 
 .input-text:focus {
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 5px rgba(133, 186, 64, 1);
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 5px rgba(133, 186, 64, 1);
+  /*-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 5px rgba(133, 186, 64, 1);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 5px rgba(133, 186, 64, 1);*/
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 5px rgba(133, 186, 64, 1);
 }
 
@@ -149,8 +150,8 @@ button:focus {
 }
 
 /*MODALS*/
-.remove-profile-picture-modal {
-  width: 40%;  /*????????????????????????????????????????*/
+.modal-width-40 {
+  width: 40%; 
 }
 
 .modal-header {

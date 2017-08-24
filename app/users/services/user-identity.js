@@ -74,9 +74,7 @@
 				function addFriend(userId) {
 					var deferred = $q.defer();
 
-					if (currentUser.friends.indexOf(userId) !== -1) { // The current user already has this user in their friends list.
-						console.log('That person is already your friend.'); // TODOTODOTODOTODO
-					} else {
+					if (currentUser.friends.indexOf(userId) == -1) { // The currently logged in user doesn't have this user in their friends list.
 						currentUser.friends.push(userId);
 
 						this.updateCurrentUser(currentUser)
@@ -92,10 +90,10 @@
 					var deferred = $q.defer();
 
 					var userIndex = currentUser.friends.indexOf(userId);
-					if (userIndex > -1) {
+					if (userIndex > -1) { // If the friend is in the currently logged in user's friend list. 
 						currentUser.friends.splice(userIndex, 1);
 					} else {
-						// Error: user is not in friend list.  //TODOTODOTODOTODO deferred.reject?
+						deferred.reject('Cannot remove friend. User ' + userId + ' is not in the currently logged in user\'s friend list. ');
 					}
 
 					this.updateCurrentUser(currentUser)
