@@ -62,25 +62,25 @@
 						<div ng-if="isFriend" class="col-sm-4 col-sm-offset-2">
 							<button class="button-size-medium-full-width button-colored" type="button" data-toggle="modal" data-target="#confirmationModal">Remove</button>
 							<div id="confirmationModal" class="modal fade">
-										    <div class="modal-dialog modal-width-40">
-										        <div class="modal-content">
-										            <div class="modal-header">
-										                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-										                <h4 class="modal-title">Are you sure you want to remove <span class="text-color-dark">{{user.username}}</span> from your friends?</h4>
-										            </div>
-										            <div class="modal-footer">
-										            	<div class="container-fluid">
-										            		<div class="row">
-										            			<div class="col-md-12">
-										            				<button class="button-modal button-colored" type="button" ng-click="removeFriend()" data-dismiss="modal">Remove</button>
-													                <button class="button-modal button-transparent left-buffer-extra-small" type="button" data-dismiss="modal">Cancel</button>
-												                </div>
-											                </div>
-										                </div>
-										            </div>
-										        </div>
-										    </div>
-										</div>
+							    <div class="modal-dialog modal-width-40">
+							        <div class="modal-content">
+							            <div class="modal-header">
+							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							                <h4 class="modal-title">Are you sure you want to remove <span class="text-color-dark">{{user.username}}</span> from your friends?</h4>
+							            </div>
+							            <div class="modal-footer">
+							            	<div class="container-fluid">
+							            		<div class="row">
+							            			<div class="col-md-12">
+							            				<button class="button-modal button-colored" type="button" ng-click="removeFriend()" data-dismiss="modal">Remove</button>
+										                <button class="button-modal button-transparent left-buffer-extra-small" type="button" data-dismiss="modal">Cancel</button>
+									                </div>
+								                </div>
+							                </div>
+							            </div>
+							        </div>
+							    </div>
+							</div>
 						</div>
 						<div class="col-sm-4">
 							<button class="button-size-medium-full-width button-transparent" type="button" ng-click="cancel()">Cancel</button>

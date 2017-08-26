@@ -52,25 +52,30 @@
 				$scope.$watch(function() {
 						return searchQuery.getUserSearchQuery() // Watch for changes on the users searchQuery.
 					}, function(newValue, oldValue) {
-						if (oldValue != newValue) { // If the users searchQuery has changed.
-							$scope.searchResults = [];
-							$scope.foundResults = true;
+						if (newValue != undefined) {
+							if (oldValue != newValue) { // If the users searchQuery has changed.
+								$scope.searchResults = [];
+								$scope.foundResults = true;
 
-							users.findUser(newValue)
-								.then(function(findUsersResult) {
-									if (findUsersResult.length > 0) {
-										$scope.foundResults = true;
+								users.findUser(newValue)
+									.then(function(findUsersResult) {
+										if (findUsersResult.length > 0) {
+											$scope.foundResults = true;
 
-										for (var userIndex = 0; userIndex < findUsersResult.length; userIndex++) {
-											users.getUser(findUsersResult[userIndex]._id)
-												.then(function(userResult) {
-													$scope.searchResults.push(userResult);
-												})
+											for (var userIndex = 0; userIndex < findUsersResult.length; userIndex++) {
+												users.getUser(findUsersResult[userIndex]._id)
+													.then(function(userResult) {
+														$scope.searchResults.push(userResult);
+													})
+											}
+										} else {
+											$scope.foundResults = false;
 										}
-									} else {
-										$scope.foundResults = false;
-									}
-								})
+									})
+									.finally(function() {
+										searchQuery.setUserSearchQuery(undefined); // Clears the search query so that when the user does a second consecutive search for the same query, the watch will catch a change.
+									})
+							}
 						}
 				});
 

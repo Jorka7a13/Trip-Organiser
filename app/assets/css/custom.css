@@ -159,6 +159,10 @@ button:focus {
 }
 
 /*TEXT*/
+.text-left {
+  text-align: left;
+}
+
 .text-brand {
   /*font-size: 3em; -- bigger, maybe better?*/
   font-size: 2.5em;
