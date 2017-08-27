@@ -58,9 +58,12 @@
 
 					$http.put(BASE_URL + 'user/' + APP_KEY + '/' + currentUser._id, userData, headers.setHeaders({'userAuthentication' : true}))
 						.then(function(updatedUserResult) {
+							currentUser = updatedUserResult.data;
+
 							if (profilePictureUrl) {
 								userProfilePicture.updateProfilePicture(userData._id, profilePictureUrl)
 									.then(function(updatedProfilePictureResult) {
+										currentUser.profilePictureUrl = profilePictureUrl;
 										deferred.resolve(updatedUserResult.data);
 									})
 							} else {
