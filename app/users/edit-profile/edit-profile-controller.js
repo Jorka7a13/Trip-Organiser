@@ -39,7 +39,7 @@
 					userIdentity.getCurrentUser()
 						.then(function(currentUserResult) {
 							currentUser = currentUserResult;
-							$scope.user = currentUser;
+							$scope.user = angular.copy(currentUser);
 						})
 				}
 
@@ -60,24 +60,19 @@
 							
 							$location.path('/profile/' + currentUser._id);
 
-							if (removedProfilePicture && !currentUser.profilePictureUrl) {
-								userProfilePicture.removeProfilePicture(currentUser._id)
-									.then(function(removedProfilePictureResult) {
-										console.log(removedProfilePictureResult); //???????????????????????????????????????????????
-										console.log('success'); //???????????????????????????????????????????????
-									})
+							if (removedProfilePicture && !$scope.user.profilePictureUrl) {
+								userProfilePicture.removeProfilePicture(currentUser._id);
 							}
 						})
 				}
 
 				$scope.removeProfilePicture = function removeProfilePicture() {
-					currentUser.profilePictureUrl = undefined;
-					currentUser.hasProfilePicture = false;
+					$scope.user.profilePictureUrl = undefined;
+					$scope.user.hasProfilePicture = false;
 					removedProfilePicture = true;
 				}
 
 				$scope.cancel = function cancel() {
-					userIdentity.deleteCurrentUser(); // Clears the cached current user that has new profile info.
 					$location.path('/profile/' + currentUser._id);
 				}
 		}])

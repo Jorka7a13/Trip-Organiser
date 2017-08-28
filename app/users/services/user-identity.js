@@ -51,9 +51,11 @@
 					var profilePictureUrl;
 
 					if (userData.profilePictureUrl) {
-						profilePictureUrl = userData.profilePictureUrl;
-						userData.profilePictureUrl = undefined; // Don't upload the profile picture URL with the "user" object.
-						userData.hasProfilePicture = true;
+						// if (!currentUser.profilePictureUrl || currentUser.profilePictureUrl != userData.profilePictureUrl) { // If the profile picture is a new one.
+							profilePictureUrl = userData.profilePictureUrl;
+							userData.profilePictureUrl = undefined; // Don't upload the profile picture URL with the "user" object.
+							userData.hasProfilePicture = true;
+						// }
 					}
 
 					$http.put(BASE_URL + 'user/' + APP_KEY + '/' + currentUser._id, userData, headers.setHeaders({'userAuthentication' : true}))
