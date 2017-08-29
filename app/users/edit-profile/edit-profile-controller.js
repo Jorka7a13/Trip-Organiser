@@ -58,12 +58,12 @@
 						.then(function(updatedUserResult) {
 							notification.success('You have successfully updated your profile information, ' + updatedUserResult.username + '!');
 							
-							$location.path('/profile/' + currentUser._id);
-
-							if (removedProfilePicture && !$scope.user.profilePictureUrl) {
-								userProfilePicture.removeProfilePicture(currentUser._id);
+							if (removedProfilePicture && !$scope.user.profilePictureUrl) { // The second check for profilePictureUrl is for when the user removes their profile picture and then uploads another one in the same editing session.
+								userProfilePicture.removeProfilePicture(currentUser._id); // Otherwise the new profile picture would be removed.
 							}
-						})
+
+							$location.path('/profile/' + currentUser._id);
+						});
 				}
 
 				$scope.removeProfilePicture = function removeProfilePicture() {

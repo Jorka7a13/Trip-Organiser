@@ -50,7 +50,7 @@
 									$scope.isFriend = true;
 								}
 							}
-						})
+						});
 				}
 
 				$scope.editProfile = function editProfile() {

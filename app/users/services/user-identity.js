@@ -49,13 +49,17 @@
 					var deferred = $q.defer();
 					
 					var profilePictureUrl;
-
 					if (userData.profilePictureUrl) {
-						// if (!currentUser.profilePictureUrl || currentUser.profilePictureUrl != userData.profilePictureUrl) { // If the profile picture is a new one.
+						if (currentUser.profilePictureUrl) { // If the user already has a profile picture and leaves the same one.
+							profilePictureUrl = currentUser.profilePictureUrl;
+						}
+
+						if (!currentUser.profilePictureUrl || currentUser.profilePictureUrl != userData.profilePictureUrl) { // If the profile picture is a new one.
 							profilePictureUrl = userData.profilePictureUrl;
-							userData.profilePictureUrl = undefined; // Don't upload the profile picture URL with the "user" object.
 							userData.hasProfilePicture = true;
-						// }
+						}
+
+						userData.profilePictureUrl = undefined; // Don't upload the profile picture URL with the "user" object.
 					}
 
 					$http.put(BASE_URL + 'user/' + APP_KEY + '/' + currentUser._id, userData, headers.setHeaders({'userAuthentication' : true}))
