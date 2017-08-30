@@ -16,7 +16,8 @@
 		'triplanner.users.profile',
 		'triplanner.users.editProfile',
 		'triplanner.users.friends',
-		'triplanner.home'
+		'triplanner.home',
+		'triplanner.trips.planTrip'
 	])
 
 		.config(['$locationProvider', '$routeProvider', '$httpProvider', function($locationProvider, $routeProvider, $httpProvider) {

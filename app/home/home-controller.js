@@ -24,9 +24,10 @@
 
 		.controller('HomeCtrl', [
 			'$scope',
-			'userIdentity',
+			'$location',
 			'pageOptions',
-			function($scope, userIdentity, pageOptions) {
+			'userIdentity',
+			function($scope, $location, pageOptions, userIdentity) {
 				pageOptions.setOptions({title: 'Home'});
 
 				var isLoggedIn = userIdentity.isLoggedIn();
@@ -36,6 +37,10 @@
 						.then(function(currentUserResult) {
 							$scope.user = currentUserResult;
 						});
+				}
+
+				$scope.goToPlanATrip = function goToPlanATrip() {
+					$location.path('/plan-a-trip');
 				}
 		}]);
 })();
