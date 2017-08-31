@@ -27,6 +27,6 @@
 			function($scope, pageOptions) {
 				pageOptions.setOptions({title: 'Plan a trip'});
 
-				
+				$scope.trip = {}
 		}])
 })();

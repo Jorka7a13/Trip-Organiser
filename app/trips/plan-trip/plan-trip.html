@@ -1,11 +1,49 @@
 <div class="container-fluid">
-	<div class="row"> <!-- Whole page container -->
-		<div class="col-md-2"> <!-- Admin tab -->
+	<div class="row top-buffer-small"> <!-- Whole page container -->
+		<div class="col-md-2"> <!-- Admin section -->
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="row">
+						<button class="button-size-small button-colored top-buffer-large">Change date and time</button>
+					</div>
+					<div class="row">
+						<button class="button-size-small button-colored top-buffer-small">Change location</button>
+					</div>
+						<!-- <div class="row">
+							<button>Add more locations</button>
+						</div> -->
+					<!-- <div class="row"> Depending on duration
+						<button>Add accomodation</button>
+					</div> -->
+					<div class="row">
+						<button class="button-size-small button-colored top-buffer-small">Add transportaion</button>
+					</div>
+						<!-- <div class="row">
+							<button>Add more vehicles</button>
+						</div> -->
+					<div class="row">
+						<button class="button-size-small button-colored top-buffer-small">Add shared shopping list</button>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="col-md-8"> <!-- Trip tab -->
-			
+		<div class="col-md-8"> <!-- Trip section -->
+			<div class="row">
+				<form name="planTripForm" ng-submit="">
+					<div class="row">
+						<div class="col-md-4 col-md-offset-4">
+							<input class="form-control input-text-no-styling" type="text" placeholder="Trip Name">
+						</div>
+					</div>
+				</form>
+			</div>
 		</div>
-		<div class="col-md-2"> <!-- People tab -->
+		<div class="col-md-2"> <!-- People section -->
+			<div class="row">
+				<div class="col-md-7 col-md-offset-3">
+					<button class="button-size-small button-colored">Add people</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
