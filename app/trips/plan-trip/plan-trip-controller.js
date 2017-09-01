@@ -28,5 +28,9 @@
 				pageOptions.setOptions({title: 'Plan a trip'});
 
 				$scope.trip = {}
+
+				$scope.addDepartureDateAndTime = function addDepartureDateAndTime() {
+
+				}
 		}])
 })();
