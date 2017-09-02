@@ -4,10 +4,20 @@
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
 					<div class="row">
-						<button class="button-size-small button-colored top-buffer-large" ng-click="addDepartureDateAndTime()">{{!trip.departureDate ? 'Add' : 'Change'}} departure date and time</button>
+						<button class="button-size-small button-colored top-buffer-large" ng-click="ui.showDepartureDateTimePicker = !ui.showDepartureDateTimePicker">{{!trip.departureDateAndTime ? 'Add' : 'Change'}} departure date and time</button>
+					</div>
+					<div ng-if="ui.showDepartureDateTimePicker" class="row">
+						<div class="form-group">
+			                <div class="input-group date top-buffer-small" id="datetimepicker1">
+			                    <input type="text" class="form-control" date-time-picker ng-model="trip.departureDateTime"/>
+			                    <span class="input-group-addon input-background-color-medium">
+			                        <span class="glyphicon glyphicon-calendar"></span>
+			                    </span>
+			                </div>
+			            </div>
 					</div>
 					<div class="row">
-						<button class="button-size-small button-colored top-buffer-small" ng-click="addArrivalDateAndTime()">{{!trip.arrivalDate ? 'Add' : 'Change'}} arrival date and time</button>
+						<button class="button-size-small button-colored top-buffer-small" ng-click="ui.addArrivalDateAndTime()">{{!trip.arrivalDate ? 'Add' : 'Change'}} arrival date and time</button>
 					</div>
 					<div class="row">
 						<button class="button-size-small button-colored top-buffer-small" ng-click="">Add/Change locations</button>
@@ -51,10 +61,10 @@
 				</form>
 			</div>
 		</div>
-		<div class="col-md-2"> <!-- People section -->
+		<div class="col-md-2"> <!-- Friends section -->
 			<div class="row">
 				<div class="col-md-7 col-md-offset-3">
-					<button class="button-size-small button-colored" ng-click="">Add people</button>
+					<button class="button-size-small button-colored" ng-click="">Add friends</button>
 				</div>
 			</div>
 			<div class="row">

@@ -8,6 +8,7 @@
 		'triplanner.common.searchQuery',
 		'triplanner.common.imageInput',  // MOVE or REMOVE this directive from the main module?
 		'triplanner.common.tooltip',  // MOVE or REMOVE this directive from the main module?
+		'triplanner.common.dateTimePicker',  // MOVE or REMOVE this directive from the main module?
 		'triplanner.common.main',
 		'triplanner.users.userIdentity',
 		'triplanner.users.users',

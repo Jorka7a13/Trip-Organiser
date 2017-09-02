@@ -27,10 +27,14 @@
 			function($scope, pageOptions) {
 				pageOptions.setOptions({title: 'Plan a trip'});
 
+				$scope.ui = {}
 				$scope.trip = {}
 
-				$scope.addDepartureDateAndTime = function addDepartureDateAndTime() {
+				// $scope.trip.departureDateTime = {}
 
+				$scope.ui.addArrivalDateAndTime = function addArrivalDateAndTime() {
+					console.log('Departure date and time:');
+					console.log($scope.trip.departureDateTime);
 				}
 		}])
 })();

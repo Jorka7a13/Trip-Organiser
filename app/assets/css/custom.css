@@ -40,6 +40,11 @@ body {
   border-color: #85BA40;
 }
 
+.input-background-color-medium {
+  background-color: #85ba40;
+  border-color: #85ba40;
+}
+
 /*INPUTS PLACEHOLDER COLOR*/
 .input-text-no-styling::-webkit-input-placeholder { /* WebKit, Blink, Edge */
   color: #81a548;
